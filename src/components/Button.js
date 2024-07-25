@@ -2,9 +2,7 @@ import React from 'react'
 
 const Button = ({name}) => {
   return (
-    <div className='py-2'>
-        <button className='mr-2 p-2 rounded-lg bg-gray-100 hover:bg-gray-200 font-semibold text-sm'>{name}</button>
-    </div>
+    <button className='px-1 py-2 gap-x-4 rounded-lg bg-gray-100 hover:bg-gray-200 font-semibold text-sm'>{name}</button>
   )
 }
 
