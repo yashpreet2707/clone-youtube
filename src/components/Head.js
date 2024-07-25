@@ -1,14 +1,27 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
+
+
 const Head = () => {
+
+  const dispatch = useDispatch() ;
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu())
+  }
+
   return (
     <div className="grid grid-flow-col items-center ">
       <div className="flex items-center justify-evenly">
-        <i class="fa-solid fa-bars text-2xl cursor-pointer"></i>
+        <i class="fa-solid fa-bars text-2xl cursor-pointer" onClick={() => toggleMenuHandler()}></i>
+        <a href="/">
         <img
-          className="h-16 cursor-pointer"
+          className="h-16"
           alt="youtube-logo"
           src="https://imgs.search.brave.com/FlI4K4Ec8D5R1MBIyJyICQnBQl0pFUiIPGwC2Ndf-vQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9saDMu/Z29vZ2xldXNlcmNv/bnRlbnQuY29tL1VF/eGlhdGxBbUhxMmkx/TlYyZTJDNjFHSW1F/Y2dKc09tMVFKcDlR/UWJPWGJoNDFzMS0y/ZGZrU0Z4TTd6UkRw/Y2tXU0gxNlVLOElL/Mk9zU1BXNGxtWk1z/QnE4OHFFQkhGN0xF/MFhhU1dlclBKZEVj/VlZXVVNvN0FOXzE0/a2xsS1pxQWMzd2Zn/NWw"
         />
+        </a>
       </div>
 
       <div className="col-span-10 flex items-center justify-center">
