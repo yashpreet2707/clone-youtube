@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-
+import { FaHistory } from "react-icons/fa";
 
 const Sidebar = () => {
 
@@ -23,7 +23,7 @@ const Sidebar = () => {
       <div className='w-2/12 h-screen'>
   
         <ul className="border-b-2 shadow-b-xl p-2">
-        <Link to="/"><li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Home</li></Link>
+        <Link to="/"><li className='px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 hover:rounded-lg'>Home</li></Link>
           <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Shorts</li>
           <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Subscriptions</li>
         </ul>
@@ -31,7 +31,7 @@ const Sidebar = () => {
         <ul className="border-b-2 shadow-b-xl p-2">
           <h3 className='font-semibold py-2 px-4 hover:bg-gray-200 hover:rounded-lg'>You &gt;</h3>
           <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Your Channel</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>History</li>
+          <li className='flex items-center justify-start gap-x-2 px-4 py-2 hover:bg-gray-200 hover:rounded-lg'><FaHistory />History</li>
           <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Playlist</li>
           <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Your Videos</li>
           <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Watch Later</li>

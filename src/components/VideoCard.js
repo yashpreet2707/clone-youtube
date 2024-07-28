@@ -5,7 +5,7 @@ const VideoCard = ({ info }) => {
     const {snippet, statistics, id} = info ;
     const { thumbnails, title, channelTitle} = snippet ;
   return (
-    <div className="w-2/12 p-2">
+    <div className="w-1/5 p-2">
       <Link to={"/watch?v="+ id }>
       <img className="rounded-lg cursor-pointer" alt="thumbnail-alt" src={thumbnails.medium.url} />
       </Link>

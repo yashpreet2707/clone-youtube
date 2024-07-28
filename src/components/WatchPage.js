@@ -7,32 +7,49 @@ import { VIDEO_DETAILS } from "../utils/constants";
 const WatchPage = () => {
 
   const [searchParams] = useSearchParams();
-  // console.log(searchParams.get("v"));
-
   const dispatch = useDispatch();
-  const [Video, setVideo] = useState(null) ;
+  const [loading, setLoading] = useState(true);
+  const [video, setVideo] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    dispatch(closeMenu());
+    const getVideoDetails = async () => {
+      try {
+        dispatch(closeMenu());
+        const response = await fetch(`${VIDEO_DETAILS}${searchParams.get('v')}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setVideo(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
 
-    getVideoDetails() ;
+    getVideoDetails();
   }, []);
-
-  const getVideoDetails = async () => {
-    const data = await fetch(VIDEO_DETAILS + searchParams.get("v")) 
-    const json = await data.json() ; 
-
-
-  setVideo(json) 
-
+  
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
-  console.log(Video)
-  // const {title, channelTitle, description} = Video?.items[0]?.snippet ;
-  // const {likeCount , commentCount, viewCount } = Video?.items[0]?.statistics ;
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!video || !video.items || video.items.length === 0) {
+    return <div>No video details found.</div>;
+  }
+
+  const { title, channelTitle, description } = video.items[0].snippet;
+  const { likeCount, commentCount, viewCount } = video.items[0].statistics;
 
 
   return (
+    
     <div className="w-full">
 
       <div className="w-9/12 bg-white">
@@ -49,20 +66,20 @@ const WatchPage = () => {
           allowfullscreen
         ></iframe>
 
-        {/* <h1 className="font-bold text-xl py-2">{title}</h1> */}
+        <h1 className="font-bold text-xl py-2">{title}</h1>
 
         <div className="flex justify-between items-center">
 
           <div className="flex items-center w-3/12">
             <i class="fa-solid fa-user text-2xl border border-black rounded-full p-2 cursor-pointer"></i>
-            {/* <span className="font-bold pl-2">{channelTitle}</span> */}
+            <span className="font-bold pl-2">{channelTitle}</span>
             <button className="p-2 ml-12 border border-black rounded-full text-white bg-black font-bold text-sm">Subscribe</button>
           </div>
 
           <div className="flex items-center justify-evenly w-6/12">
 
             <div>
-              {/* <button className="p-2 border-r border-black rounded-l-full bg-gray-100 hover:bg-gray-200 font-bold"><i class="fa-solid fa-thumbs-up"></i> {likeCount}</button> */}
+              <button className="p-2 border-r border-black rounded-l-full bg-gray-100 hover:bg-gray-200 font-bold"><i class="fa-solid fa-thumbs-up"></i> {likeCount}</button>
               <button className="p-2 rounded-r-full bg-gray-100 hover:bg-gray-200"><i class="fa-solid fa-thumbs-down"></i></button>
             </div>
             
@@ -78,12 +95,22 @@ const WatchPage = () => {
           </div>
 
         </div>
+        {console.log(description )}
+        <div className="mt-4 p-3 bg-gray-100 rounded-lg">
+          <h3 className="font-bold">{viewCount} views</h3>
+          <p>{description}</p>
+        </div>
+
+        <div className="mt-4">
+          <h3 className="font-bold text-xl">{commentCount} Comments</h3>
+        </div>
 
       </div>
 
 
     </div>
-  )
+    )
+  
 };
 
 export default WatchPage;
