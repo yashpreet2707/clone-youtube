@@ -66,16 +66,19 @@ const WatchPage = () => {
           allowfullscreen
         ></iframe>
 
+
         <h1 className="font-bold text-xl py-2">{title}</h1>
 
         <div className="flex justify-between items-center">
 
-          <div className="flex items-center w-3/12">
+          {/* video details div  */}
+          <div className="flex items-center w-4/12">
             <i class="fa-solid fa-user text-2xl border border-black rounded-full p-2 cursor-pointer"></i>
             <span className="font-bold pl-2">{channelTitle}</span>
-            <button className="p-2 ml-12 border border-black rounded-full text-white bg-black font-bold text-sm">Subscribe</button>
+            <button className="ml-8 p-2 border border-black rounded-full text-white bg-black font-bold text-sm">Subscribe</button>
           </div>
 
+          {/* buttons */}
           <div className="flex items-center justify-evenly w-6/12">
 
             <div>
@@ -95,12 +98,14 @@ const WatchPage = () => {
           </div>
 
         </div>
-        {console.log(description )}
+
+        {/* description box */}
         <div className="mt-4 p-3 bg-gray-100 rounded-lg">
           <h3 className="font-bold">{viewCount} views</h3>
           <p>{description}</p>
         </div>
 
+        {/* comment box  */}
         <div className="mt-4">
           <h3 className="font-bold text-xl">{commentCount} Comments</h3>
         </div>

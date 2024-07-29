@@ -16,4 +16,13 @@ const VideoCard = ({ info }) => {
   );
 };
 
+// export const AdVideoCard = ({info}) => {
+//     return (
+//       <div>
+//         <VideoCard info={info} />
+//         <span>hehe this is somestuff</span>
+//       </div>
+//     )
+// }
+
 export default VideoCard;

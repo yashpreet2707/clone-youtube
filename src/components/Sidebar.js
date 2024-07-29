@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { FaHistory } from "react-icons/fa";
+import { Clapperboard, Clock, Dices, Flame, History, House, Layers2, Lightbulb, ListVideo, MonitorPlay, Music, Newspaper, Podcast, Radio, Shirt, ShoppingBag, Trophy, TvMinimal, Youtube } from 'lucide-react';
 
 const Sidebar = () => {
 
@@ -23,41 +23,41 @@ const Sidebar = () => {
       <div className='w-2/12 h-screen'>
   
         <ul className="border-b-2 shadow-b-xl p-2">
-        <Link to="/"><li className='px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 hover:rounded-lg'>Home</li></Link>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Shorts</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Subscriptions</li>
+        <Link to="/"><li className='px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 hover:rounded-lg flex items-center justify-start gap-x-2 '><House /> Home</li></Link>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2 '><Layers2 />Shorts</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2 '><Podcast /> Subscriptions</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
-          <h3 className='font-semibold py-2 px-4 hover:bg-gray-200 hover:rounded-lg'>You &gt;</h3>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Your Channel</li>
-          <li className='flex items-center justify-start gap-x-2 px-4 py-2 hover:bg-gray-200 hover:rounded-lg'><FaHistory />History</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Playlist</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Your Videos</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Watch Later</li>
+          <h3 className='font-semibold py-2 px-4 hover:bg-gray-200 hover:rounded-lg '>You &gt;</h3>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><TvMinimal />Your Channel</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><History />History</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><ListVideo /> Playlist</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><MonitorPlay /> Your Videos</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Clock /> Watch Later</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
           <h3 className='font-semibold py-2 px-4'>Explore</h3>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Trending</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Shopping</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Music</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Films</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Live</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Gaming</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>News</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Sport</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Courses</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Fashion & beauty</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Podcasts</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Flame />Trending</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><ShoppingBag /> Shopping</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Music /> Music</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Clapperboard /> Films</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Radio /> Live</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Dices /> Gaming</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Newspaper /> News</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Trophy /> Sport</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Lightbulb /> Courses</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Shirt /> Fashion & beauty</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Podcast /> Podcasts</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
           <h3 className='font-semibold py-2 px-4'>More from YouTube</h3>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>YouTube Premium</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Youtube Studio</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>YouTube Studio</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg'>Youtube Kids</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> YouTube Premium</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> Youtube Studio</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> YouTube Studio</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> Youtube Kids</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
