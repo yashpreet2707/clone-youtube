@@ -9,6 +9,8 @@ const Head = () => {
   const [SearchQuery , setSearchQuery] = useState("") ;
   const [Suggestions, setSuggestions] = useState([]) ;
 
+  const [ShowSuggestions, setShowSuggestions] = useState(false) ;
+
   useEffect( ()=>{
     // make an api call after each key press
     // but if the difference between two api calls is <200ms
@@ -61,6 +63,8 @@ const Head = () => {
           placeholder="Search"
           value={SearchQuery}
           onChange={(e)=>{setSearchQuery(e.target.value)}}
+          onFocus={()=> setShowSuggestions(true)}
+          onBlur={()=> setShowSuggestions(false)}
         />
         {(SearchQuery) && <i class="fa-solid fa-x text-2xl absolute mt-3 -ml-[25px] cursor-pointer" onClick={()=> {setSearchQuery("")}}></i>}
         <button className="border border-black border-l-0 p-2 px-3 rounded-r-full bg-gray-100">
@@ -69,10 +73,10 @@ const Head = () => {
         <i class="fa-solid fa-microphone text-2xl mx-4 p-2 px-3 border border-black rounded-full bg-gray-100"></i>
       </div>
 
-      {SearchQuery && <div className="w-2/5 ml-80 p-4 pl-0 pr-0 rounded-xl fixed bg-white  shadow-xl border border-gray-300">
+      {ShowSuggestions && <div className="w-2/5 ml-80 p-4 pl-0 pr-0 rounded-xl absolute bg-white  shadow-xl border border-gray-300">
         <ul>
           {Suggestions.map( (item,id) => {
-            return <li className="p-1 pl-4 flex justify-start align-center gap-x-2 font-bold cursor-pointer hover:bg-gray-100" index={id}>{item}</li>
+            return <li className="p-1 pl-4 flex justify-start align-center gap-x-2 font-bold cursor-pointer hover:bg-gray-100" key={id}>{item}</li>
           })}
         </ul>
       </div>}
