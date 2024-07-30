@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
-import { VIDEO_DETAILS } from "../utils/constants";
+import { VIDEO_DETAILS, YOUTUBE_VIDEO_API } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const WatchPage = () => {
 
@@ -11,17 +12,25 @@ const WatchPage = () => {
   const [loading, setLoading] = useState(true);
   const [video, setVideo] = useState(null);
   const [error, setError] = useState(null);
+  const [Recommendations, setRecommendations] = useState([]) ;
 
   useEffect(() => {
     const getVideoDetails = async () => {
       try {
         dispatch(closeMenu());
+
         const response = await fetch(`${VIDEO_DETAILS}${searchParams.get('v')}`);
+        const recommendationResult = await fetch(YOUTUBE_VIDEO_API+"20")
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        const recommendationData = await recommendationResult.json() ;
+
         setVideo(data);
+        // console.log(recommendationData.items)
+        setRecommendations(recommendationData.items)
         setLoading(false);
       } catch (err) {
         setError(err);
@@ -46,18 +55,17 @@ const WatchPage = () => {
 
   const { title, channelTitle, description } = video.items[0].snippet;
   const { likeCount, commentCount, viewCount } = video.items[0].statistics;
-
+  
 
   return (
     
-    <div className="w-full">
+    <div className="w-full flex">
 
-      <div className="w-9/12 bg-white">
-
+      <div className="w-9/12">
         <iframe
-          className="rounded-lg"
-          width="1360"
-          height="770"
+          className="rounded-lg m-auto mt-4"
+          width="1000"
+          height="580"
           src={"https://www.youtube.com/embed/"+ searchParams.get("v")}
           title="YouTube video player"
           frameborder="0"
@@ -112,7 +120,37 @@ const WatchPage = () => {
 
       </div>
 
+      <div className="w-3/12">
 
+        {Recommendations.map( (item) =>{
+          {console.log(item)}
+          return (
+            <div className="flex items-center w-full p-2">
+              <div className="h-full w-full">
+                <Link to={"/watch?v="+ item.id }>
+                <img className="h-[100px] rounded-lg" src={item.snippet.thumbnails.medium.url} alt="recommendation-alt"></img>
+                </Link>
+              </div>
+              <div className="ml-1">
+                <h2 className="text-[12px] font-semibold">{item.snippet.title}</h2>
+                <h3 className="text-xs text-gray-600 mt-1">{item.snippet.channelTitle}</h3>
+                <h3 className="text-xs text-gray-600 mt-1">{item.statistics.viewCount}</h3>
+              </div>
+          </div>
+          )
+        })}
+
+        {/* <div className="flex border border-black w-full p-2 mb-2">
+          <img className="h-[100px] w-[155px] rounded-lg" src={Recommendations.items[1].snippet.thumbnails.medium.url} alt="recommendation-alt"></img>
+          <div className="ml-1">
+            <h2 className="text-[12px] font-semibold">{Recommendations.items[1].snippet.title}</h2>
+            <h3 className="text-xs text-gray-600 mt-1">{Recommendations.items[1].snippet.channelTitle}</h3>
+            <h3 className="text-xs text-gray-600 mt-1">{Recommendations.items[1].statistics.viewCount}</h3>
+          </div>
+        </div> */}
+
+      </div>
+        
     </div>
     )
   

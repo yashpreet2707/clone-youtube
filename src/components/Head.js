@@ -52,7 +52,7 @@ const Head = () => {
 
 
   return (
-    <div className="grid grid-flow-col items-center border-b border-black">
+    <div className="grid grid-flow-col items-center">
       <div className="flex items-center justify-evenly">
         <div className="cursor-pointer" onClick={()=> toggleMenuHandler()}><Menu /></div>
         <a href="/">
@@ -75,7 +75,7 @@ const Head = () => {
           onFocus={()=> setShowSuggestions(true)}
           onBlur={()=> setShowSuggestions(false)}
         />
-        {(SearchQuery) && <i class="fa-solid fa-x text-2xl absolute mt-3 -ml-[25px] cursor-pointer" onClick={()=> {setSearchQuery("")}}></i>}
+        {(SearchQuery) && <i class="fa-solid fa-x text-2xl absolute ml-72 mt-2 cursor-pointer" onClick={()=> {setSearchQuery("")}}></i>}
         <button className="border border-gray-400 border-l-0 p-2 px-5 rounded-r-full bg-gray-50">
           <Search />
         </button>
@@ -84,10 +84,10 @@ const Head = () => {
         </div>
       </div>
 
-      {ShowSuggestions && <div className="w-2/5 ml-80 p-4 pl-0 pr-0 rounded-xl absolute bg-white  shadow-xl border border-gray-300">
+      {ShowSuggestions && <div className="w-1/3 ml-64 p-4 pl-0 pr-0 rounded-xl absolute bg-white  shadow-xl border border-gray-300">
         <ul>
           {Suggestions.map( (item,id) => {
-            return <li className="p-1 pl-4 flex justify-start align-center gap-x-2 font-bold hover:bg-gray-100" key={id}>{item}</li>
+            return <li className="p-1 pl-4 flex justify-start align-center gap-x-4 font-semibold hover:bg-gray-100" key={id}><Search />{item}</li>
           })}
         </ul>
         <p className="text-right text-xs italic text-gray-800 mr-2">Report Search Predictions</p>
