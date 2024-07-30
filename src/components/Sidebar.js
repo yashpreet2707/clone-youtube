@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   return (!isMenuOpen) 
     ? (
-      <div className='w-22 h-screen text-sm'>
+      <div className='w-20 h-full text-sm'>
         <ul className='p-2'>
           <li className='p-6'><Link to="/"><i class="fa-solid fa-house text-2xl"></i></Link></li>
           <li className='p-6'><i class="fa-brands fa-xing text-2xl"></i></li>
@@ -20,44 +20,44 @@ const Sidebar = () => {
       </div>
     )
     : (
-      <div className='w-2/12 h-screen'>
+      <div className='w-2/12 mt-2'>
   
         <ul className="border-b-2 shadow-b-xl p-2">
-        <Link to="/"><li className='px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 hover:rounded-lg flex items-center justify-start gap-x-2 '><House /> Home</li></Link>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2 '><Layers2 />Shorts</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2 '><Podcast /> Subscriptions</li>
+          <Link to="/"><li className='px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><House /> Home</li></Link>
+            <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Layers2 />Shorts</li>
+            <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Podcast /> Subscriptions</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
           <h3 className='font-semibold py-2 px-4 hover:bg-gray-200 hover:rounded-lg '>You &gt;</h3>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><TvMinimal />Your Channel</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><History />History</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><ListVideo /> Playlist</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><MonitorPlay /> Your Videos</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Clock /> Watch Later</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><TvMinimal />Your Channel</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><History />History</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><ListVideo /> Playlist</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><MonitorPlay /> Your Videos</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Clock /> Watch Later</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
           <h3 className='font-semibold py-2 px-4'>Explore</h3>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Flame />Trending</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><ShoppingBag /> Shopping</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Music /> Music</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Clapperboard /> Films</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Radio /> Live</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Dices /> Gaming</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Newspaper /> News</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Trophy /> Sport</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Lightbulb /> Courses</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Shirt /> Fashion & beauty</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Podcast /> Podcasts</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Flame />Trending</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><ShoppingBag /> Shopping</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Music /> Music</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Clapperboard /> Films</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Radio /> Live</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Dices /> Gaming</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Newspaper /> News</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Trophy /> Sport</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Lightbulb /> Courses</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Shirt /> Fashion & beauty</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Podcast /> Podcasts</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
           <h3 className='font-semibold py-2 px-4'>More from YouTube</h3>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> YouTube Premium</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> Youtube Studio</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> YouTube Studio</li>
-          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-2'><Youtube /> Youtube Kids</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Youtube /> YouTube Premium</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Youtube /> Youtube Studio</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Youtube /> YouTube Studio</li>
+          <li className='px-4 py-2 hover:bg-gray-200 hover:rounded-lg flex items-center justify-start gap-x-4 text-sm'><Youtube /> Youtube Kids</li>
         </ul>
   
         <ul className="border-b-2 shadow-b-xl p-2">
@@ -84,7 +84,7 @@ const Sidebar = () => {
           <li className='px-1'>Test new features</li>
         </ul>
   
-        <h3 className='text-xs text-gray-400 p-4'>&copy; 2024 Yash Copyright 😉</h3>
+        <h3 className='text-xs text-gray-500 p-4'>&copy; 2024 Yash Copyright 😉</h3>
       </div>
     )
 
