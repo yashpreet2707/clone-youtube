@@ -4,10 +4,12 @@ import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import { VIDEO_DETAILS, YOUTUBE_VIDEO_API } from "../utils/constants";
 import { Link } from "react-router-dom";
-
+import { ArrowDownNarrowWide } from "lucide-react";
+import CommentContainer from "./CommentContainer"
 const WatchPage = () => {
 
   const [searchParams] = useSearchParams();
+  
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [video, setVideo] = useState(null);
@@ -29,7 +31,6 @@ const WatchPage = () => {
         const recommendationData = await recommendationResult.json() ;
 
         setVideo(data);
-        // console.log(recommendationData.items)
         setRecommendations(recommendationData.items)
         setLoading(false);
       } catch (err) {
@@ -114,16 +115,19 @@ const WatchPage = () => {
         </div>
 
         {/* comment box  */}
-        <div className="mt-4">
-          <h3 className="font-bold text-xl">{commentCount} Comments</h3>
+        <div className="mt-4 bg-green-300 h-screen">
+          <h3 className="font-bold text-xl flex align-center gap-x-4 pb-4">{commentCount} Comments <span className="text-sm flex align-center text-gray-500 mt-1"><ArrowDownNarrowWide /> Sort by</span></h3>
+
+          <CommentContainer />
+
         </div>
 
       </div>
 
+      {/* Recommendation videos  */}
       <div className="w-3/12">
 
         {Recommendations.map( (item) =>{
-          {console.log(item)}
           return (
             <div className="flex items-center w-full p-2">
               <div className="h-full w-full">
@@ -139,15 +143,6 @@ const WatchPage = () => {
           </div>
           )
         })}
-
-        {/* <div className="flex border border-black w-full p-2 mb-2">
-          <img className="h-[100px] w-[155px] rounded-lg" src={Recommendations.items[1].snippet.thumbnails.medium.url} alt="recommendation-alt"></img>
-          <div className="ml-1">
-            <h2 className="text-[12px] font-semibold">{Recommendations.items[1].snippet.title}</h2>
-            <h3 className="text-xs text-gray-600 mt-1">{Recommendations.items[1].snippet.channelTitle}</h3>
-            <h3 className="text-xs text-gray-600 mt-1">{Recommendations.items[1].statistics.viewCount}</h3>
-          </div>
-        </div> */}
 
       </div>
         

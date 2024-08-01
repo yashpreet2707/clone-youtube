@@ -7,10 +7,12 @@ const VideoCard = ({ info }) => {
   return (
     <div className="w-1/3 my-4">
       <Link to={"/watch?v="+ id }>
-        <img className="ml-4 rounded-lg cursor-pointer" alt="thumbnail-alt" src={thumbnails.medium.url} />
+        <img className="rounded-lg cursor-pointer hover:bg-gradient-to-t" alt="thumbnail-alt" src={thumbnails.medium.url} />
       </Link>
       <div className="ml-4">
-        <h4 className="font-bold py-2 text-[14px] w-full">{title}</h4>
+        <Link to={"/watch?v="+id}>
+        <h4 className="font-bold py-2 text-[14px] w-full cursor-pointer">{title}</h4>
+        </Link>
         <h5 className="pb-1 font-semibold text-sm text-gray-600 w-full">{channelTitle}</h5>
         <h5 className="text-sm text-gray-600 w-full">{statistics.viewCount} views </h5>
       </div>

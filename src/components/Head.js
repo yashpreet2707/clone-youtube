@@ -35,7 +35,6 @@ const Head = () => {
   }, [SearchQuery])
 
   const getSearchSuggestions = async () => {
-    console.log("API Call - " + SearchQuery)
     const data = await fetch(YOUTUBE_SEARCH_API + SearchQuery)
 
     const json = await data.json() ;

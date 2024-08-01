@@ -1,18 +1,21 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Clapperboard, Clock, Dices, Flame, History, House, Layers2, Lightbulb, ListVideo, MonitorPlay, Music, Newspaper, Podcast, Radio, Shirt, ShoppingBag, Trophy, TvMinimal, Youtube } from 'lucide-react';
+import {openMenu} from "../utils/appSlice"
 
 const Sidebar = () => {
 
   const isMenuOpen = useSelector(store => store.app.isMenuOpen)
+
+  const dispatch = useDispatch() ;
 
 
   return (!isMenuOpen) 
     ? (
       <div className='w-20 h-full text-sm'>
         <ul className='p-2'>
-          <li className='p-6'><Link to="/"><i class="fa-solid fa-house text-2xl"></i></Link></li>
+          <li className='p-6'><Link to="/"><i class="fa-solid fa-house text-2xl" onClick={() => dispatch(openMenu())}></i></Link></li>
           <li className='p-6'><i class="fa-brands fa-xing text-2xl"></i></li>
           <li className='p-6'><i class="fa-solid fa-box text-2xl"></i></li>
           <li className='p-6'><i class="fa-regular fa-user text-2xl"></i></li>

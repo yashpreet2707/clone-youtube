@@ -8,3 +8,5 @@ export const VIDEO_DETAILS = "https://youtube.googleapis.com/youtube/v3/videos?p
 
 
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=chrome&ds=yt&q=" ;
+
+export const YOUTUBE_COMMENT_THREAD_API = "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&key=" + GOOGLE_API_KEY + "&videoId=" ;
