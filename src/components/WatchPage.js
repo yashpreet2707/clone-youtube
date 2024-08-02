@@ -57,6 +57,7 @@ const WatchPage = () => {
   const { title, channelTitle, description } = video.items[0].snippet;
   const { likeCount, commentCount, viewCount } = video.items[0].statistics;
   
+  console.log(video.items[0])
 
   return (
     
@@ -115,7 +116,7 @@ const WatchPage = () => {
         </div>
 
         {/* comment box  */}
-        <div className="mt-4 bg-green-300 h-screen">
+        <div className="mt-4 h-screen">
           <h3 className="font-bold text-xl flex align-center gap-x-4 pb-4">{commentCount} Comments <span className="text-sm flex align-center text-gray-500 mt-1"><ArrowDownNarrowWide /> Sort by</span></h3>
 
           <CommentContainer />

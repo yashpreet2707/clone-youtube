@@ -23,6 +23,7 @@ const CommentContainer = () => {
         }
 
         const json = await data.json() ;
+        console.log(json)
         setCommentData(json.items)
         setLoading(false)
       } catch (err) {
@@ -46,7 +47,11 @@ const CommentContainer = () => {
 
   return (
     <div>
-      <CommentCard data={CommentData[8].snippet.topLevelComment} />
+      {CommentData.map( (comment,id)=> {
+        return (
+          <CommentCard data={comment.snippet.topLevelComment} key={id} />
+        )
+      })}
     </div>
   )
 }
