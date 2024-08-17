@@ -7,7 +7,7 @@ const VideoCard = ({ info }) => {
   return (
     <div className="w-1/3 my-4">
       <Link to={"/watch?v="+ id }>
-        <img className="rounded-lg cursor-pointer hover:bg-gradient-to-t" alt="thumbnail-alt" src={thumbnails.medium.url} />
+        <img className="rounded-lg cursor-pointer ml-6" alt="thumbnail-alt" src={thumbnails.medium.url} />
       </Link>
       <div className="ml-4">
         <Link to={"/watch?v="+id}>
