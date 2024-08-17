@@ -6,7 +6,7 @@ import { VIDEO_DETAILS, YOUTUBE_CHANNEL_API, YOUTUBE_VIDEO_API } from "../utils/
 import { Link } from "react-router-dom";
 import { ArrowDownNarrowWide } from "lucide-react";
 import CommentContainer from "./CommentContainer"
-import 
+
 const WatchPage = () => {
 
   const [searchParams] = useSearchParams();
@@ -16,7 +16,6 @@ const WatchPage = () => {
   const [video, setVideo] = useState(null);
   const [error, setError] = useState(null);
   const [Recommendations, setRecommendations] = useState([]) ;
-  const [ChannelDetails, setChannelDetails] = useState([]) ;
 
   useEffect(() => {
     const getVideoDetails = async () => {
@@ -24,7 +23,7 @@ const WatchPage = () => {
         dispatch(closeMenu());
 
         const response = await fetch(`${VIDEO_DETAILS}${searchParams.get('v')}`);
-        const recommendationResult = await fetch(YOUTUBE_VIDEO_API+"20")
+        const recommendationResult = await fetch(YOUTUBE_VIDEO_API+"25")
         
 
         if (!response.ok) {
@@ -45,7 +44,7 @@ const WatchPage = () => {
     };
 
     getVideoDetails();
-  }, []);
+  }, [video]);
   
   if (loading) {
     return <div className="flex justify-center items-center">Loading...</div>;
@@ -61,8 +60,6 @@ const WatchPage = () => {
 
   const { title, channelTitle, description } = video.items[0].snippet;
   const { likeCount, commentCount, viewCount } = video.items[0].statistics; 
-
-  console.log(ChannelDetails)
 
   return (
     
@@ -94,7 +91,7 @@ const WatchPage = () => {
           </div>
 
           {/* buttons */}
-          <div className="flex items-center justify-evenly w-6/12">
+          <div className="flex items-center justify-evenly w-7/12">
 
             <div>
               <button className="p-2 border-r border-black rounded-l-full bg-gray-100 hover:bg-gray-200 font-bold"><i class="fa-solid fa-thumbs-up"></i> {likeCount}</button>
